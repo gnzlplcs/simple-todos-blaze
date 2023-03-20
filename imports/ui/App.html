@@ -5,16 +5,21 @@
 <template name="mainContainer">
   <div class="container">
     <header>
-      <h1>ToDo List</h1>
+      <div class="app-bar">
+        <div class="app-header">
+          <h1>📝 To Do List</h1>
+        </div>
+      </div>
     </header>
 
-    {{> form}}
-
-    <ul>
-      {{#each tasks}}
-      {{> task}}
-      {{/each}}
-    </ul>
+    <div class="main">
+      {{> form}}
+      <ul>
+        {{#each tasks}}
+        {{> task}}
+        {{/each}}
+      </ul>
+    </div>
   </div>
 </template>
 
