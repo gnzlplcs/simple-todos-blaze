@@ -8,10 +8,12 @@
       <h1>ToDo List</h1>
     </header>
 
+    {{> form}}
+
     <ul>
       {{#each tasks}}
-        {{> task}}
-       {{/each}}
+      {{> task}}
+      {{/each}}
     </ul>
   </div>
 </template>
