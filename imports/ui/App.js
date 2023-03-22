@@ -1,5 +1,5 @@
 import { Template } from "meteor/templating";
-import { TasksCollection } from "../api/TasksCollection";
+import { TasksCollection } from "../db/TasksCollection";
 import { ReactiveDict } from "meteor/reactive-dict";
 
 import "./App.html";
@@ -76,7 +76,7 @@ Template.mainContainer.helpers({
 
   getUser() {
     return getUser();
-  }
+  },
 });
 
 Template.form.events({
@@ -86,11 +86,7 @@ Template.form.events({
     const { target } = event;
     const text = target.text.value;
 
-    TasksCollection.insert({
-      text,
-      userId: getUser()._id,
-      createdAt: new Date(),
-    });
+    Meteor.call("tasks.insert", text);
 
     target.text.value = "";
   },
